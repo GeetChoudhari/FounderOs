@@ -1,7 +1,6 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "regions": ["cle1", "iad1", "dub1"],
   "functions": {
     "src/app/api/**/*.ts": {
       "runtime": "edge"
