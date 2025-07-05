@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "regions": ["cle1", "iad1", "dub1"],
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "runtime": "edge"
+    }
+  },
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic_api_key",
+    "TAVILY_API_KEY": "@tavily_api_key",
+    "LANGCHAIN_API_KEY": "@langchain_api_key",
+    "NEXT_PUBLIC_VERCEL_ANALYTICS_ID": "@vercel_analytics_id"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/health",
+      "destination": "/api/health"
+    }
+  ]
+}
