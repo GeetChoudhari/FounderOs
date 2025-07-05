@@ -7,6 +7,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://founderos-hackathon.vercel.app'),
   title: 'FounderOS - AI Command Center for Canadian Startups',
   description: 'The ambient AI co-founder that monitors your competition, discovers funding opportunities, and optimizes your startup operations 24/7.',
   keywords: 'AI startup, Canadian startups, founder tools, ambient intelligence, funding discovery',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'FounderOS - AI Command Center for Canadian Startups',
     description: 'The ambient AI co-founder that never sleeps',
-    url: 'https://founderos.vercel.app',
+    url: 'https://founderos-hackathon.vercel.app',
     siteName: 'FounderOS',
     locale: 'en_CA',
     type: 'website',
