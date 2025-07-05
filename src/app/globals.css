@@ -2,54 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FounderOS Custom Styles */
+/* FounderOS Professional Design System */
+/* Optimized for Vercel deployment and Canadian startup ecosystem */
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  /* Professional Color Palette - Dark Mode (Primary) */
+  --color-primary-brand: 30 64 175;        /* #1e40af Deep Blue */
+  --color-primary-secondary: 6 182 212;     /* #06b6d4 Electric Cyan */
+  
+  --color-surface-background: 15 23 42;     /* #0f172a Charcoal */
+  --color-surface-card: 30 41 59;           /* #1e293b Dark Gray */
+  --color-surface-border: 51 65 85;         /* #334155 */
+  --color-surface-hover: 71 85 105;         /* #475569 */
+  
+  --color-text-primary: 241 245 249;        /* #f1f5f9 Off White */
+  --color-text-secondary: 148 163 184;      /* #94a3b8 Light Gray */
+  --color-text-muted: 100 116 139;          /* #64748b */
+  --color-text-accent: 6 182 212;           /* #06b6d4 */
+  
+  --color-status-success: 16 185 129;       /* #10b981 */
+  --color-status-warning: 245 158 11;       /* #f59e0b */
+  --color-status-error: 239 68 68;          /* #ef4444 */
+  --color-status-info: 59 130 246;          /* #3b82f6 */
   
   /* Canadian Theme Colors */
-  --canada-red: #FF0000;
-  --canada-white: #FFFFFF;
-  --startup-blue: #0070F3;
-  --success-green: #00D647;
-  --warning-amber: #F5A623;
-  --error-red: #F56565;
+  --color-canadian-red: 255 0 0;            /* #FF0000 */
+  --color-canadian-white: 255 255 255;      /* #FFFFFF */
+  --color-canadian-maple: 255 107 53;       /* #FF6B35 */
+  
+  /* Typography Scale */
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-caption: 0.75rem;
+  --font-size-micro: 0.6875rem;
+  
+  /* Spacing System */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
 }
 
-/* Smooth scrolling for better UX */
+/* Light mode color overrides */
+[data-theme="light"] {
+  --color-primary-brand: 59 130 246;        /* #3b82f6 Royal Blue */
+  --color-primary-secondary: 20 184 166;    /* #14b8a6 Teal */
+  
+  --color-surface-background: 255 255 255;  /* #ffffff Pure White */
+  --color-surface-card: 248 250 252;        /* #f8fafc Subtle Gray */
+  --color-surface-border: 226 232 240;      /* #e2e8f0 */
+  --color-surface-hover: 241 245 249;       /* #f1f5f9 */
+  
+  --color-text-primary: 15 23 42;           /* #0f172a Dark */
+  --color-text-secondary: 71 85 105;        /* #475569 */
+  --color-text-muted: 100 116 139;          /* #64748b */
+  --color-text-accent: 20 184 166;          /* #14b8a6 */
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
-/* Custom scrollbar for dark theme */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: rgb(var(--color-surface-background));
+  color: rgb(var(--color-text-primary));
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+/* Professional Scrollbar (Dark Theme) */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(31, 41, 55);
+  background: rgb(var(--color-surface-background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(75, 85, 99);
+  background: rgb(var(--color-surface-border));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(107, 114, 128);
+  background: rgb(var(--color-surface-hover));
 }
 
-/* Ambient agent pulse animation */
+/* Ambient Agent Pulse Animation (Enhanced) */
 @keyframes ambient-pulse {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-secondary), 0.7);
   }
   50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.9;
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(var(--color-primary-secondary), 0);
   }
 }
 
@@ -57,54 +154,78 @@ html {
   animation: ambient-pulse 3s ease-in-out infinite;
 }
 
-/* Canadian flag gradient */
+/* Canadian Flag Gradient */
 .canada-gradient {
-  background: linear-gradient(45deg, #FF0000 0%, #FFFFFF 50%, #FF0000 100%);
+  background: linear-gradient(
+    45deg, 
+    rgb(var(--color-canadian-red)) 0%, 
+    rgb(var(--color-canadian-white)) 50%, 
+    rgb(var(--color-canadian-red)) 100%
+  );
 }
 
-/* Startup success gradient */
-.success-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-/* Market intelligence glow */
+/* Market Intelligence Glow Effect */
 .market-glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(var(--color-primary-secondary), 0.3);
+  transition: box-shadow var(--duration-normal) ease;
 }
 
-/* Funding opportunity highlight */
+.market-glow:hover {
+  box-shadow: 0 0 30px rgba(var(--color-primary-secondary), 0.5);
+}
+
+/* Success Gradient for Funding */
 .funding-highlight {
-  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-status-success), 0.1) 0%, 
+    rgba(var(--color-primary-secondary), 0.1) 100%
+  );
+  border: 1px solid rgba(var(--color-status-success), 0.2);
 }
 
-/* Code health indicator */
+/* Code Health Status Indicators */
 .code-health-good {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-status-success), 0.1) 0%, 
+    rgba(var(--color-status-info), 0.1) 100%
+  );
+  border: 1px solid rgba(var(--color-status-success), 0.2);
 }
 
 .code-health-warning {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-status-warning), 0.1) 0%, 
+    rgba(255, 193, 7, 0.1) 100%
+  );
+  border: 1px solid rgba(var(--color-status-warning), 0.2);
 }
 
 .code-health-critical {
-  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-status-error), 0.1) 0%, 
+    rgba(220, 38, 127, 0.1) 100%
+  );
+  border: 1px solid rgba(var(--color-status-error), 0.2);
 }
 
-/* Typography improvements */
+/* Enhanced Text Gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg, 
+    rgb(var(--color-primary-brand)) 0%, 
+    rgb(var(--color-primary-secondary)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 600;
 }
 
-/* Loading states */
-.loading-shimmer {
-  background: linear-gradient(90deg, #1f2937 0%, #374151 50%, #1f2937 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
-}
-
+/* Loading Shimmer (Performance Optimized) */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -114,18 +235,37 @@ html {
   }
 }
 
-/* Interactive elements */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-surface-card)) 0%,
+    rgb(var(--color-surface-hover)) 50%,
+    rgb(var(--color-surface-card)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Interactive Card Enhancement */
 .interactive-card {
-  transition: all 0.3s ease;
+  transition: all var(--duration-normal) ease;
   cursor: pointer;
+  border: 1px solid rgb(var(--color-surface-border));
 }
 
 .interactive-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(var(--color-primary-secondary), 0.1);
+  border-color: rgb(var(--color-surface-hover));
 }
 
-/* Notification badges */
+.interactive-card:active {
+  transform: translateY(-1px);
+}
+
+/* Notification Badge with Animation */
 .notification-badge {
   position: relative;
   overflow: hidden;
@@ -138,29 +278,74 @@ html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(var(--color-text-primary), 0.1), 
+    transparent
+  );
+  transition: left var(--duration-slow) ease;
 }
 
 .notification-badge:hover::before {
   left: 100%;
 }
 
-/* Demo presentation mode */
-.demo-mode {
-  border: 2px solid var(--success-green);
-  box-shadow: 0 0 20px rgba(0, 214, 71, 0.3);
+/* Status Indicator Dot */
+.status-dot {
+  position: relative;
 }
 
-/* Responsive design helpers */
+.status-dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid rgb(var(--color-surface-background));
+}
+
+.status-dot.online::after {
+  background-color: rgb(var(--color-status-success));
+  box-shadow: 0 0 0 2px rgba(var(--color-status-success), 0.3);
+}
+
+.status-dot.busy::after {
+  background-color: rgb(var(--color-status-warning));
+}
+
+.status-dot.offline::after {
+  background-color: rgb(var(--color-text-muted));
+}
+
+/* Demo Presentation Mode */
+.demo-mode {
+  border: 2px solid rgb(var(--color-status-success));
+  box-shadow: 0 0 20px rgba(var(--color-status-success), 0.3);
+  animation: ambient-pulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design Utilities */
 @media (max-width: 768px) {
+  :root {
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+  }
+  
   .mobile-friendly {
-    padding: 1rem;
-    font-size: 0.875rem;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-small);
   }
   
   .desktop-only {
     display: none;
+  }
+  
+  .interactive-card:hover {
+    transform: none; /* Disable hover effects on mobile */
   }
 }
 
@@ -170,25 +355,31 @@ html {
   }
 }
 
-/* Accessibility improvements */
+/* Accessibility Improvements */
 .focus-visible:focus {
-  outline: 2px solid var(--startup-blue);
+  outline: 2px solid rgb(var(--color-primary-brand));
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* High contrast mode support */
+/* High Contrast Mode Support */
 @media (prefers-contrast: high) {
-  .bg-gray-800 {
-    background-color: #000000;
+  :root {
+    --color-surface-border: 255 255 255;
+    --color-text-secondary: 255 255 255;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
   
-  .text-gray-400 {
-    color: #ffffff;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
   .ambient-pulse {
     animation: none;
   }
@@ -196,23 +387,133 @@ html {
   .loading-shimmer {
     animation: none;
   }
-  
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
-/* Print styles for reports */
+/* Print Styles for Reports */
 @media print {
   .no-print {
-    display: none;
+    display: none !important;
   }
   
   .print-friendly {
     background: white !important;
     color: black !important;
     box-shadow: none !important;
+    border: 1px solid #ccc !important;
   }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Performance Optimization: GPU Acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-surface {
+    background-color: rgb(var(--color-surface-background));
+  }
+  
+  .bg-card {
+    background-color: rgb(var(--color-surface-card));
+  }
+  
+  .border-surface {
+    border-color: rgb(var(--color-surface-border));
+  }
+  
+  .text-primary {
+    color: rgb(var(--color-text-primary));
+  }
+  
+  .text-secondary {
+    color: rgb(var(--color-text-secondary));
+  }
+  
+  .text-muted {
+    color: rgb(var(--color-text-muted));
+  }
+}
+
+/* Component Base Classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn text-white;
+    background-color: rgb(var(--color-primary-brand));
+  }
+  
+  .btn-primary:hover {
+    background-color: rgb(var(--color-primary-brand) / 0.9);
+  }
+  
+  .card {
+    @apply rounded-lg border border-surface-border bg-card p-6 shadow-sm;
+  }
+  
+  .card-interactive {
+    @apply card interactive-card;
+  }
+}
+
+/* Performance: Critical CSS Inlining */
+.critical-above-fold {
+  contain: layout style paint;
+}
+
+/* Ambient UI Specific Animations */
+@keyframes data-flow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+.data-flow {
+  animation: data-flow 2s ease-in-out infinite;
+}
+
+/* Real-time Indicator */
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.live-indicator {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+.live-indicator::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(var(--color-status-success));
+  margin-right: 6px;
 }
